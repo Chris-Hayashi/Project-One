@@ -18,7 +18,7 @@
   //OMDB API
   var omdbApiKey = "trilogy";
 
-  var omdbQueryURL = "http://www.omdbapi.com/?t=Frozen&apikey=";
+  var omdbQueryURL = "http://www.omdbapi.com/?t=";
 
   $.ajax({
     url: omdbQueryURL + omdbApiKey,
@@ -37,6 +37,18 @@
   $.ajax({
     url:mdQueryURL + mdApiKey,
     method: "GET"
-  }).then(function(response) {
+  }).then(function(outerResponse) {
+      for (var i = 0; i < 5; i++) {
+
+          $.ajax({
+            url: omdbQueryURL + outerResponse.results[i].title + "&apikey=" + omdbApiKey,
+            method: "GET"
+          }).then(function(innerResponse) {
+            var poster = $("<img>");
+            poster.attr("src", innerResponse.Poster);
+            $("#trending-movies").append(poster);
+          });
+      }
+    // $("#movie").attr("src", response.results[1].poster_path);
     console.log(response);
   });
