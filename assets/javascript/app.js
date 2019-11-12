@@ -14,4 +14,29 @@
 
   var database = firebase.database();
 
-  
+
+  //OMDB API
+  var omdbApiKey = "trilogy";
+
+  var omdbQueryURL = "http://www.omdbapi.com/?t=Frozen&apikey=";
+
+  $.ajax({
+    url: omdbQueryURL + omdbApiKey,
+    method: "GET"
+  }).then(function(response) {
+    console.log(response);
+  });
+  //END API
+
+  //MovieDatabase API
+
+  mdApiKey = "fa775e9fe9e1075f6a2bc9dbdb7d79b7";
+
+  var mdQueryURL = "https://api.themoviedb.org/3/trending/all/week?api_key=";
+
+  $.ajax({
+    url:mdQueryURL + mdApiKey,
+    method: "GET"
+  }).then(function(response) {
+    console.log(response);
+  });
