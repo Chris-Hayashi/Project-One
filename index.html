@@ -1,15 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Document</title>
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- BEGIN SHAREAHOLIC CODE -->
+    <link rel=“preload” href=“https://cdn.shareaholic.net/assets/pub/shareaholic.js” as=“script” />
+    <meta name=“shareaholic:site_id” content=“ce29b5213e6c23c1ea2184b37e85dcac” />
+    <script data-cfasync=“false” async src=“https://cdn.shareaholic.net/assets/pub/shareaholic.js”> </script> <!-- END
+        SHAREAHOLIC CODE -->
+        <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <title>PixFlix</title>
 </head>
 <body>
+    <!--Jumbotron header-->
+        <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                  <h1 class="display-4">Fluid jumbotron</h1>
+                  <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                </div>
+              </div>
+              <!--search bar for movie-->
+              <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search for a film or TV series" aria-label="Search for a film or TV series" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button" id="button-addon2">search</button>
+                    </div>
+                  </div>
+<div id="searchResults"></div>
+<div id="userCreateContainer">
+        <div class="card" style="width: 18rem;" id="showTitle">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Movie or show title</li>
+                  </ul>
+        </div>
+        <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                </div>
+                <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                      </div>
+                      <button type="button" class="btn btn-outline-secondary">Add to bucket</button>
+
+
+
+                      
+</div>
+
+<div id="userBucket"></div>
+
 
 
 
@@ -17,10 +60,13 @@
     <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
+    <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-database.js"></script>
 
-</body>
-<script src="assets/javascript/app.js"></script>
+    <!-- button for sharing to Facebook -->
+    <!-- <div class=“shareaholic-canvas” data-app=“share_buttons” data-app-id=“28746744”></div> -->
+    </body>
+    <script src="assets/javascript/app.js"></script>
+
 </html>

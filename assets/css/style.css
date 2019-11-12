@@ -1,0 +1,12 @@
+#userCreateContainer{
+    height: 400px;
+    width: 300px;
+    border: black solid;
+}
+
+#userBucket{
+    height: 550px;
+    width: 100%;
+    border: solid black 3px;
+
+}
