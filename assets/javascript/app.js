@@ -14,6 +14,8 @@
 
   var database = firebase.database();
 
+    //child_added event for firebase (runs as soon as page is loaded)
+
 
   //OMDB API
   var omdbApiKey = "&apikey=" + "trilogy";
@@ -31,6 +33,7 @@
     url: mdQueryURL + mdApiKey,
     method: "GET"
   }).then(function(outerResponse) {
+
     console.log(outerResponse);
 
     //append 4 movie images to the trending movies carousel
@@ -46,10 +49,11 @@
             url: omdbQueryURL + outerResponse.results[i].title + movieYear + omdbApiKey,
             method: "GET"
           }).then(function(innerResponse) {
+
             $("#trending" + (i + 1)).attr("src", innerResponse.Poster);
+
           });
       }
-    console.log(response);
   });
 
 
@@ -76,4 +80,21 @@
       $("#movieImage").attr("src", response.Poster);
 
     });
+  });
+
+
+  //onClick event for the "Add to Bucket" button
+  $("#addBucket").on("click", function(event) {
+
+    //prevent the button from refreshing the page
+    event.preventDefault();
+
+    //create an object for each movie
+    var addMovie = {
+      title: $("#movieTitle").text(),
+      posterUrl: $("#movieImage").attr("src")
+    }
+
+    //upload the movie data to firebase
+    database.ref().push(addMovie);
   });
