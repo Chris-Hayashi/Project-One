@@ -1,12 +1,32 @@
 #userCreateContainer{
-    height: 400px;
+    height: 500px;
     width: 300px;
     border: black solid;
+    margin-left: 60px;
+    margin-bottom: 200px;
 }
 
 #userBucket{
     height: 550px;
     width: 100%;
-    border: solid black 3px;
-
+    border: solid black 2px;
 }
+
+#carouselExampleFade{
+    border: black solid;
+    width: 500px;
+    height: 400px;
+    float: right;
+    /* margin-t: 160px; */
+}
+
+.jumbotron{
+    background-image: url(../images/charles-I6mx55jXOvM-unsplash.jpg);
+    color: white;
+}
+
+.input-group{
+    width: 350px;
+    margin-left: 60px;
+}
+
