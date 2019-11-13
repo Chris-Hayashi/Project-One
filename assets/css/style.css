@@ -1,23 +1,24 @@
 #userCreateContainer{
     height: 500px;
-    width: 300px;
+    width: 294px;
     border: black solid;
     margin-left: 60px;
     margin-bottom: 200px;
 }
 
 #userBucket{
-    height: 550px;
+    height: 400px;
     width: 100%;
     border: solid black 2px;
 }
 
-#carouselExampleFade{
-    border: black solid;
-    width: 500px;
-    height: 400px;
-    float: right;
-    /* margin-t: 160px; */
+#carouselContainer{
+      border: black solid;
+     width: 100px;
+    height: 100px; 
+     /* margin-top: 160px;
+    margin-left: 680px;
+    margin-bottom: x; */
 }
 
 .jumbotron{
@@ -30,3 +31,43 @@
     margin-left: 60px;
 }
 
+.btn{
+    margin-left: 20px;
+    font: center;
+}
+.list-group-item{
+position: center;
+
+}
+
+#mtDisplay{
+    margin-left: 10px;
+}
+
+footer{
+    width:100%;
+    height: 65px;
+    background: #01273c;
+    font: center;
+    color: #FBD1A7;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 11px;
+  
+}
+
+.carousel{
+    margin-right: 30px;
+    margin-bottom: 200px;
+    
+}
+
+/* #movieTitle{ */
+    /* height: 50px;
+    width: 200px;
+} */
+
+#trending1{
+    height: 200px;
+    width: 200px;
+}
