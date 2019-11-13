@@ -26,19 +26,18 @@
 
   var mdQueryURL = "https://api.themoviedb.org/3/trending/all/week?api_key=";
 
+  //MovieDatabase AJAX CALL
   $.ajax({
     url:mdQueryURL + mdApiKey,
     method: "GET"
   }).then(function(outerResponse) {
-      for (var i = 0; i < 5; i++) {
+      for (var i = 1; i < 5; i++) {
 
           $.ajax({
             url: omdbQueryURL + outerResponse.results[i].title + omdbApiKey,
             method: "GET"
           }).then(function(innerResponse) {
-            var poster = $("<img>");
-            poster.attr("src", innerResponse.Poster);
-            $("#trending-movies").append(poster);
+            $("#trending" + i).attr("src", innerResponse.Poster);
           });
       }
     console.log(response);
