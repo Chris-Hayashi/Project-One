@@ -14,8 +14,22 @@
 
   var database = firebase.database();
 
-    //child_added event for firebase (runs as soon as page is loaded)
+  //child_added event for firebase (runs as soon as page is loaded)
+  database.ref().on("child_added", function(childSnapshot) {
 
+    //create the div card
+    var newCard = $("<div class='card' style='width: 18rem;'>");
+    var cardImage = $("<img class='card-img-top' alt='Card image cap'>");
+    movieImage.attr("src", childSnapshot.posterUrl);
+    var cardBody = $("<div class='card-body'>");
+    cardBody.append($("<h5>").attr("class", "card-class").text(childSnapshot.title));
+    cardBody.append($("<p class='card-text'>").text(childSnapshot.userComment));
+    newCard.append(cardImage);
+    newCard.append(cardBody);
+
+    //append the newCard to #userBucket
+    $("#userBucket").append(newCard);
+  });
 
   //OMDB API
   var omdbApiKey = "&apikey=" + "trilogy";
@@ -92,9 +106,10 @@
     //create an object for each movie
     var addMovie = {
       title: $("#movieTitle").text(),
-      posterUrl: $("#movieImage").attr("src")
+      posterUrl: $("#movieImage").attr("src"),
+      userComment: $("#userComment").val()
     }
 
-    //upload the movie data to firebase
+    //upload the movie object to firebase
     database.ref().push(addMovie);
   });
