@@ -16,19 +16,11 @@
 
 
   //OMDB API
-  var omdbApiKey = "trilogy";
+  var omdbApiKey = "&apikey=" + "trilogy";
 
   var omdbQueryURL = "http://www.omdbapi.com/?t=";
 
-  $.ajax({
-    url: omdbQueryURL + omdbApiKey,
-    method: "GET"
-  }).then(function(response) {
-    console.log(response);
-  });
-  //END API
-
-  //MovieDatabase API
+  //MovieDatabase API (for trending movies)
 
   mdApiKey = "fa775e9fe9e1075f6a2bc9dbdb7d79b7";
 
@@ -41,7 +33,7 @@
       for (var i = 0; i < 5; i++) {
 
           $.ajax({
-            url: omdbQueryURL + outerResponse.results[i].title + "&apikey=" + omdbApiKey,
+            url: omdbQueryURL + outerResponse.results[i].title + omdbApiKey,
             method: "GET"
           }).then(function(innerResponse) {
             var poster = $("<img>");
@@ -49,6 +41,31 @@
             $("#trending-movies").append(poster);
           });
       }
-    // $("#movie").attr("src", response.results[1].poster_path);
     console.log(response);
   });
+
+
+
+  // //onClick event for the search button
+  // $("#button-addon2").on("click", function(event) {
+
+  //   //prevent the event from refreshing the page
+  //   event.preventDefault();
+
+  //   //store the movie title in a variable
+  //   var movieTitle = $(".form-control").val().trim();
+
+  //   //OMDB AJAX CALL
+  //   $.ajax({
+  //     url: omdbQueryURL + movieTitle + omdbApiKey,
+  //     method: "GET"
+  //   }).then(function(response) {
+
+  //     //retrieve the title of the movie
+  //     $("#movieTitle").text(response.Title);
+
+  //     //retrieve the image of the movie
+  //     $("#movieImage").attr("src", response.Poster);
+
+  //   });
+  // });
