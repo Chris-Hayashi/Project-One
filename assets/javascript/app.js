@@ -28,16 +28,25 @@
 
   //MovieDatabase AJAX CALL
   $.ajax({
-    url:mdQueryURL + mdApiKey,
+    url: mdQueryURL + mdApiKey,
     method: "GET"
   }).then(function(outerResponse) {
-      for (var i = 1; i < 5; i++) {
+    console.log(outerResponse);
 
+    //append 4 movie images to the trending movies carousel
+      for (var i = 0; i < 4; i++) {
+
+        //retrieve the movie year for each trending movie
+        var movieYear = outerResponse.results[i].release_date;
+        movieYear = movieYear.split("-");
+        movieYear = "&y=" + movieYear[0];
+
+        //inner AJAX call to OMDB API
           $.ajax({
-            url: omdbQueryURL + outerResponse.results[i].title + omdbApiKey,
+            url: omdbQueryURL + outerResponse.results[i].title + movieYear + omdbApiKey,
             method: "GET"
           }).then(function(innerResponse) {
-            $("#trending" + i).attr("src", innerResponse.Poster);
+            $("#trending" + (i + 1)).attr("src", innerResponse.Poster);
           });
       }
     console.log(response);
@@ -45,26 +54,26 @@
 
 
 
-  // //onClick event for the search button
-  // $("#button-addon2").on("click", function(event) {
+  //onClick event for the search button
+  $("#button-addon2").on("click", function(event) {
 
-  //   //prevent the event from refreshing the page
-  //   event.preventDefault();
+    //prevent the event from refreshing the page
+    event.preventDefault();
 
-  //   //store the movie title in a variable
-  //   var movieTitle = $(".form-control").val().trim();
+    //store the movie title in a variable
+    var movieTitle = $(".form-control").val().trim();
 
-  //   //OMDB AJAX CALL
-  //   $.ajax({
-  //     url: omdbQueryURL + movieTitle + omdbApiKey,
-  //     method: "GET"
-  //   }).then(function(response) {
+    //OMDB AJAX CALL
+    $.ajax({
+      url: omdbQueryURL + movieTitle + omdbApiKey,
+      method: "GET"
+    }).then(function(response) {
 
-  //     //retrieve the title of the movie
-  //     $("#movieTitle").text(response.Title);
+      //retrieve the title of the movie
+      $("#movieTitle").text(response.Title);
 
-  //     //retrieve the image of the movie
-  //     $("#movieImage").attr("src", response.Poster);
+      //retrieve the image of the movie
+      $("#movieImage").attr("src", response.Poster);
 
-  //   });
-  // });
+    });
+  });
