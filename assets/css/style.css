@@ -1,18 +1,28 @@
+h1{
+    font-family: 'Overpass', sans-serif;
+}
+
+p{
+    font-family: 'Overpass', sans-serif;
+
+}
+
 body{
  background-color: #353C42
 }
 
 #userCreateContainer{
-    height: 500px;
+    height: 570px;
     width: 294px;
     border: black solid;
     margin-left: 60px;
-    margin-bottom: 200px;
+    margin-bottom: 700px;
+    
 }
 
 #userBucket{
-    height: 400px;
-    width: 1440px;;
+    height: 570px;
+    width: 100%;
     border: solid black 2px;
     margin-top: 390px;
     background-color: #607178;
@@ -27,7 +37,7 @@ body{
      /* margin-top: 160px;
     margin-left: 680px;
     margin-bottom: x; */
-}
+} 
 
 .jumbotron{
     background-image: url(../images/charles-I6mx55jXOvM-unsplash.jpg);
@@ -51,9 +61,8 @@ position: center;
 #mtDisplay{
     margin-left: 10px;
 }
-
 footer{
-    width: 1440px;
+    width: 100%;
     height: 65px;
     background: #01273c;
     font: center;
@@ -64,12 +73,14 @@ footer{
   
 }
 
-/* .carousel{
-    margin-right: 30px;
-    margin-bottom: 200px;
+.carousel{
+    height: 350px;
+    width: 450px;
+    margin-left: 800px;
+    margin-top: 100px;
 
     
-} */
+}
 
 /* #movieTitle{ */
     /* height: 50px;
@@ -93,17 +104,69 @@ footer{
     background-color: #01273c;
 }
 
-#bucketHeader{
+/* #bucketHeader{
 border: solid black 2px;
 width: 150px;
-height: 31px;
+height: 31px;14px;
 text-align: center;
 z-index: 1;
 position: relative;
 background-color: #01273c;
-color: #FBD1A7;
+color: #FBD1A7; */
 }
 
-#formBackground{
-    background-color: #607178;
+#userComment{
+    background-color: #607178
+}
+
+#bottomHeader{
+    font-family: 'Overpass', sans-serif;
+background-color: #607178;
+border: black solid 1px;
+width: 200px;
+height: 60px;
+text-align: center;
+font-size: 28px;
+z-index: 1;
+position: relative;
+background-color: #01273c;
+color: #FBD1A7;
+margin-bottom: 30px;
+padding-top: -20px;
+margin:
+}
+
+#myBucketHeader{
+    margin-top: 5px;
+
+}
+
+#userBucketItem1{
+    margin-left: 300px;
+    float: right;
+}
+#userBucketItem2{
+    /* margin-left: 300px; */
+    float: right;
+
+}
+
+.card-header{
+    background-color: #01273C;
+    color: #FBD1A7;
+    font-family: 'Overpass', sans-serif;
+
+ 
+}
+
+textarea{
+    background-color: #01273C;
+    color: #FBD1A7;
+}
+
+.btn{
+    margin-left: 20px;
+
+    font-family: 'Overpass', sans-serif;
+
 }
