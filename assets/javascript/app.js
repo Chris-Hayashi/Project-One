@@ -110,3 +110,44 @@ $("#addBucket").on("click", function (event) {
   //upload the movie object to firebase
   database.ref().push(addMovie);
 });
+
+emojiID = ["cNEkiz27tOidqUBuoR", "2fIbmaiOnI3VlQFZEq", "yN4RUYrRRrKVRoGqQm", "TgGWZwWlsODxFPA21A", "3OsFzorSZSUZcvo6UC"];
+
+// $.ajax({
+//   url: emojiqueryURL,
+//   method: "GET"
+// }).then(function (emojiResponse) {
+
+//   console.log(emojiResponse);
+// });
+
+function giphyDisplay() {
+  $("#emojiBtn").empty();
+  var emojis = $(this).attr("data-emoji");
+  emojiqueryURL = "https://api.giphy.com/v1/gifs/?api_key=tuHOptJN3WWLtwMil1BWJF8fU18JA1f5"+emojis;
+  //Making an AJAX call
+  $.ajax({
+      url: emojiqueryURL,
+      method: "GET"
+  }).then(function (response) {
+    console.log(response);
+  });
+//       adding div class with a card-group using bootstrap 
+//       var giphyDiv = $("<div class='media'>");
+//       $("#emojiBtn").append(giphyDiv);
+//       //iterating the response in a for loop and adding them to a card div to arrange them using bootstrap
+//       for (i = 0; i < response.data.length; i++) {
+//           //keeping this console log to ensure we get the right API callback
+//           console.log(response.data)
+//           var media = $("<div class='media'>");
+//           $(giphyDiv).prepend(media);
+
+
+//           var gifImage = $("<img>")
+//               .attr("class", 'emoji_images')
+//               .attr("src", response.data[i].images.original_still.url)
+//           $(media).append(gifImage);
+//       }
+//   }
+//   )
+// };
