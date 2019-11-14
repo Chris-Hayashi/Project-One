@@ -33,13 +33,10 @@
 
   //OMDB API
   var omdbApiKey = "&apikey=" + "trilogy";
-
   var omdbQueryURL = "http://www.omdbapi.com/?t=";
 
   //MovieDatabase API (for trending movies)
-
-  mdApiKey = "fa775e9fe9e1075f6a2bc9dbdb7d79b7";
-
+  var mdApiKey = "fa775e9fe9e1075f6a2bc9dbdb7d79b7";
   var mdQueryURL = "https://api.themoviedb.org/3/trending/all/week?api_key=";
 
   //MovieDatabase AJAX CALL
