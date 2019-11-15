@@ -151,5 +151,11 @@ function emojiDisplay() {
 }
 
 function imgClick(idx) {
-  console.log("click - " + idx)
+  $(".emoji_images").click(function(){
+    console.log("click - " + idx)
+
+  })
+
+  
 }
+
