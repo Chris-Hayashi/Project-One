@@ -141,7 +141,7 @@ function emojiDisplay() {
           //var media = $("<div class='media'>");
           //$(giphyDiv).prepend(media);
           
-          var gifImage = $("<img onclick=imgClick('" + response.data.id + "')>")
+          var gifImage = $("<img onclick=imgClick('" + response.data.images.downsized_medium.url + "')>")
               .attr("class", 'emoji_images')
               .attr("src", response.data.images.downsized_medium.url)
               
@@ -151,11 +151,9 @@ function emojiDisplay() {
 }
 
 function imgClick(idx) {
-  $(".emoji_images").click(function(){
-    console.log("click - " + idx)
-
-  })
-
+  console.log("click - " + idx)
+  $("#showEmoji").html("");
+  $("#showEmoji").append('<img src = "' + idx + '" height = 50px width = 50px>');
   
 }
 
