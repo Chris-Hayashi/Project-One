@@ -9,15 +9,15 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- BEGIN SHAREAHOLIC CODE -->
-  <link rel=“preload” href=“https://cdn.shareaholic.net/assets/pub/shareaholic.js” as=“script” />
+  <!-- <link rel=“preload” href=“https://cdn.shareaholic.net/assets/pub/shareaholic.js” as=“script” />
   <meta name=“shareaholic:site_id” content=“ce29b5213e6c23c1ea2184b37e85dcac” />
-  <script data-cfasync=“false” async src=“https://cdn.shareaholic.net/assets/pub/shareaholic.js”> </script> <!-- END
+  <script data-cfasync=“false” async src=“https://cdn.shareaholic.net/assets/pub/shareaholic.js”> </script> <!-- END -->
     SHAREAHOLIC CODE -->
         <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <title>PixFlix</title>
 </head>
-<body>
+<body onload="emojiDisplay()">
     <!--Jumbotron header-->
     <div class="jumbotron">
             <h1 class="display-4">PixFlix</h1>
@@ -76,9 +76,9 @@
                 <div class="form-group" id="formBackground">
                         <textarea class="form-control" id="exampleFormControlTextarea1 userComment" rows="3" placeholder="Tell us how you really feel.."></textarea>
                 </div>
-                <div id = "emojiBtn"></div>
+                <span id = "emojiBtn"></div>
                       <button type="button" class="btn btn-outline-secondary" id="addBucket">Add to bucket</button>  
-                    </div>
+                </span>
                 </div>
                 </div>
                     
