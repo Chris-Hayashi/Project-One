@@ -31,15 +31,6 @@ database.ref().on("child_added", function (childSnapshot) {
   $("#userBucket").append(newCard);
 });
 
-//hover over to see description in the userBucket
-$(function()    {
-  $('[data-toggle="popover"').popover();
-});
-
-// $(function()  {
-//   $(".movieTitle").popover(options);
-// });
-// //card-header
 
 //OMDB API
 var omdbApiKey = "&apikey=" + "trilogy";
@@ -120,3 +111,14 @@ $("#addBucket").on("click", function (event) {
   //upload the movie object to firebase
   database.ref().push(addMovie);
 });
+
+//hover over to see description in the userBucket
+// $(function()    {
+
+//   $('[data-toggle="popover"').popover();
+// });
+
+$(function()  {
+  $("#movieTitle").popover();
+});
+//card-header
