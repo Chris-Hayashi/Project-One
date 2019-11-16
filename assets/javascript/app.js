@@ -120,7 +120,6 @@ $("#addBucket").on("click", function (event) {
 //hover over to see description in the userBucket
 $(function()    {
 $('[data-toggle="popover"').popover();
-outerResponse.results[i].title = $("#movieTitle").popover();
 });
 
 // $(function()  {
