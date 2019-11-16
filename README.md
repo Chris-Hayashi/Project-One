@@ -121,7 +121,7 @@ Once user clicks the “add to bucket” button after filling out their media in
 ### Giphy API (Emojis)
 We searched for multiple options for grabbing a set of emojis to rate or emote about a film. We landed with Giphy APIs and we searched for the IDs we wanted to show case for our V1 of the application. We used that to append to the movie search. Every search we tag, we were able to append the emoticon to the movie we wanted to rate.
 
-![The Giphy API](https://github.com/Chris-Hayashi/Project-One/blob/master/assets/images/firebase.png "The Giphy API")
+![The Giphy API](https://github.com/Chris-Hayashi/Project-One/blob/master/assets/images/emojiExample.gif "The Giphy API")
 
 ### Shareaholic API
 We used this API to share our website/application over a social media platform. For this we used the shareaholic API which gave us the necessary start for sharing our application.
