@@ -110,41 +110,32 @@ $("#addBucket").on("click", function (event) {
   //upload the movie object to firebase
   database.ref().push(addMovie);
 });
-// here starts EMOJI API logic
+// This is where the EMOJI API logic starts
 emojiID = ["cNEkiz27tOidqUBuoR", "2fIbmaiOnI3VlQFZEq", "yN4RUYrRRrKVRoGqQm", "TgGWZwWlsODxFPA21A", "3OsFzorSZSUZcvo6UC"];
-
-// $.ajax({
-//   url: emojiqueryURL,
-//   method: "GET"
-// }).then(function (emojiResponse) {
-
-//   console.log(emojiResponse);
-// });
 
 function emojiDisplay() {
   $("#emojiBtn").empty();
   var emojis = $(this).attr("data-emoji");
   for (i = 0; i < emojiID.length; i++) {
-    emojiqueryURL = "https://api.giphy.com/v1/gifs/"+emojiID[i]+"?api_key=tuHOptJN3WWLtwMil1BWJF8fU18JA1f5";
+    emojiqueryURL = "https://api.giphy.com/v1/gifs/" + emojiID[i] + "?api_key=tuHOptJN3WWLtwMil1BWJF8fU18JA1f5";
     $.ajax({
       url: emojiqueryURL,
       method: "GET"
     }).then(function (response) {
-    console.log(response);
-     // adding div class with a card-group using bootstrap 
-      var giphyDiv = $("<span>");
-      $("#emojiBtn").append(giphyDiv);          
-          var gifImage = $("<img onclick=imgClick('" + response.data.images.downsized_medium.url + "')>")
-              .attr("class", 'emoji_images')
-              .attr("src", response.data.images.downsized_medium.url)
-              
-          $(giphyDiv).append(gifImage);
+      console.log(response);
+      var emojiDiv = $("<span>");
+      $("#emojiBtn").append(giphyDiv);
+      var emojiImage = $("<img onclick=imgClick('" + response.data.images.downsized_medium.url + "')>")
+        .attr("class", 'emoji_images')
+        .attr("src", response.data.images.downsized_medium.url)
+
+      $(emojiDiv).append(emojiImage);
     });
-  } 
+  }
 }
 
-function imgClick(idx) {
-  console.log("click - " + idx)
+function imgClick(id) {
+  console.log("click - " + id)
   $("#showEmoji").html("");
-  $("#showEmoji").append('<img src = "' + idx + '" height = 50px width = 50px>');
+  $("#showEmoji").append('<img src = "' + id + '" height = 50px width = 50px>');
 }
