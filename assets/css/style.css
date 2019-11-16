@@ -116,7 +116,7 @@ background-color: #01273c;
 color: #FBD1A7;
 margin-bottom: 30px;
 padding-top: -20px;
-margin:
+/* margin: */
 }
 
 #myBucketHeader{
@@ -168,6 +168,6 @@ textarea{
 }
 
 #showEmoji {
-    width: 50px;
+    width: 10%;
     z-index: 1;
 }
