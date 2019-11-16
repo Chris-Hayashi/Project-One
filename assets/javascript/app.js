@@ -14,21 +14,26 @@ firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
 
+//counter for child_added function
+var counter = 0;
+
 //child_added event for firebase (runs as soon as page is loaded)
 database.ref().on("child_added", function (childSnapshot) {
 
-  //create the div card
-  var newCard = $("<div class='card' style='width: 18rem;'>");
-  var cardImage = $("<img class='card-img-top' alt='Card image cap'>");
-  movieImage.attr("src", childSnapshot.posterUrl);
-  var cardBody = $("<div class='card-body'>");
-  cardBody.append($("<h5>").attr("class", "card-class").text(childSnapshot.title));
-  cardBody.append($("<p class='card-text'>").text(childSnapshot.userComment));
-  newCard.append(cardImage);
-  newCard.append(cardBody);
+  //increment the counter
+  counter++;
+  
+  //append the movie title
+  $("#movieTitle" + counter).text(childSnapshot.title);
+
+  //append the movie image to each corresponding #moviePoster
+  $("#moviePoster" + counter).attr("src", childSnapshot.posterUrl);
+
+  //append the user comment to each 
+  $("#movieComment" + counter).text(childSnapshot.userComment);
 
   //append the newCard to #userBucket
-  $("#userBucket").append(newCard);
+  // $("#userBucket").append(newCard);
 });
 
 
@@ -105,26 +110,21 @@ $("#addBucket").on("click", function (event) {
   var addMovie = {
     title: $("#movieTitle").text(),
     posterUrl: $("#movieImage").attr("src"),
-    userComment: $("#userComment").val()
+    userComment: $("#inputField").val()
   }
 
   //upload the movie object to firebase
   database.ref().push(addMovie);
-<<<<<<< HEAD
 });
 
 //hover over to see description in the userBucket
 $(function()    {
-
-  $('[data-toggle="popover"').popover();
+$('[data-toggle="popover"').popover();
+outerResponse.results[i].title = $("#movieTitle").popover();
 });
 
 // $(function()  {
 //   $("#movieTitle").popover();
 // });
 //card-header
-=======
 
-
-});
->>>>>>> 4b89d9d558a6d002305fafb98679fed42d5c0998
