@@ -43,7 +43,7 @@ database.ref().on("child_added", function (childSnapshot) {
 
 
 //OMDB API
-var omdbApiKey = "&apikey=" + "trilogy";
+var omdbApiKey = "&apikey=" + "9f733008";
 var omdbQueryURL = "http://www.omdbapi.com/?t=";
 
 //MovieDatabase API (for trending movies)
