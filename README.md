@@ -1,10 +1,11 @@
 # Project-Spectator
 Idea behind this app was based on how we currently depend on redundant and elaborate information we find on the internet. We don’t truly understand IF we could watch a particular movie (or) TV Show.
 We depend on websites that write a 2 page long reviews which we don’t really need, we just simply want to know if its worth our time or not. We don’t get this information anywhere….. UNTIL NOW!
-Our website is a social platform for a particular  user to come in search for a movie/tv show, based on the choose how they feel about the movie using one of the emoticons we provide as options and write a small blurb of info about what they really feel in a quick sentence. 
-If they really like the movie or tv show which they want to create a bucket and share this with their friends and family, THEY CAN do that. This is our differentiator and this is why users will be attracted to use the website for sharing their opinions with their friends and family.
+Our website is a social platform where a particular  user comes in search for a movie/tv show, and based on what they choose how they feel about the movie/tv show using one of the emoticons we provide as options and write a quick sentence about how they really feel about the movie/tv show.
+If they really like the movie or tv show,  they can then create a bucket and share this with their friends and family, YES THEY CAN Absolutely do that! This is our differentiator and this is why users will be attracted to use our website for sharing their opinions with their friends and family about the movies/tv shows we have in this day and age.
 
 ## Table of contents
+How the APP works
 Technologies Used
 Applications Used
 Wireframe Design
@@ -20,6 +21,9 @@ Future RoadMap
 Team memeber GIT Links
 Code Snippets
 
+## How the APP works
+
+PixFlix is built upon the usage of APIs, libraries, and firebase. As the user enters the name of a movie or tv show and hits the search button, an ajax call to OMDB api will display the image and title of the movie on a card below the search bar. The user has the option to add an emoji and type in a comment below the movie poster. Additionally, if he/she were to hover over the movie poster, a dialogue box will appear displaying the description of the movie. This is done using Popper.js. When the user is done, he/she may click the “Add to bucket” button, and this will create an object on firebase containing all the data the user has provided, such as the movie title, movie poster, comment, and emoji.  Once the movie object is pushed up to firebase, a “child_added” function will execute and populate the empty cards in “My bucket” with the information contained within that object. When the user is satisfied with the movies in the bucket, he/she has the option of sharing that bucket by clicking a button which will send a link to the website through facebook.
 
 ## Technologies Used
 HTML
@@ -147,56 +151,200 @@ We did the initial pull from master, we added the structure for the framework we
 
 ## Future RoadMap
 
-## Team memeber GIT Links
+#### Garlic.js
+Allows users to fill out forms and saves the text to the local storage for future usage
+#### TypeAhead.js
+This works as an autocorrect or auto finish where a user can start typing something and a recommended word will pop up and can be selected to use
+#### Additional Features:
+- Sharing the Bucket to social media platforms
+- More custom emojis for user reviews
+- A custom rating system for the movies and tv shows
 
-## 
+## Authors
+<!-- make a link to the deployed site and have your name as the link -->
+* [Krishna](https://github.com/krishnaaddala)
+* [Matt](https://github.com/demonaco)
+* [Brandon](https://github.com/brandon123774)
+* [Chris H](https://github.com/Chris-Hayashi/)
 
+## Appendix for Code Snippets
 
-## Code Snippets
+ ```<!--User bucket-->
 
-```var firebaseConfig = {
-    apiKey: "AIzaSyAY6AYGDx-D7WF3a0W5fcs_aK91uCPfp6c",
-    authDomain: "train-scheduler-assignme-3cc0b.firebaseapp.com",
-    databaseURL: "https://train-scheduler-assignme-3cc0b.firebaseio.com",
-    projectId: "train-scheduler-assignme-3cc0b",
-    storageBucket: "train-scheduler-assignme-3cc0b.appspot.com",
-    messagingSenderId: "474090265715",
-    appId: "1:474090265715:web:d2823fa7bb9f7605491e06",
-    measurementId: "G-1R09HW8CW6"
-};
+  <!-- Code provided by Bootstrap -->
+  <div id="userBucket">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card-deck">
+
+            <!-- First Bucket Movie -->
+            <div class="card">
+              <ul class="list-group list-group-flush">
+                <div class="card-header" id="movieTitle1">
+                </div>
+                <div id="showEmoji1"></div>
+              </ul>
+              <img src="" class="card-img-top" id="moviePoster1" alt="movie 1 image" title="Description"
+                data-content="This is the description of the movie searched." data-trigger="hover" data-toggle="popover"
+                data-placement="right">
+              <div class="card-body">
+                <p class="card-text" id="movieComment1"></p>
+              </div>
+            </div>
+             
+            <div class="card">
+              <ul class="list-group list-group-flush">
+                <div class="card-header" id="movieTitle2">
+                </div>
+                <div id="showEmoji2"></div>
+              </ul>
+              <img src="assets/images/Placeholder1.jpg" class="card-img-top" id="moviePoster2" alt="movie 2 image" title="Description"
+                data-content="This is the description of the movie searched." data-trigger="hover" data-toggle="popover"
+                data-placement="right">
+              <div class="card-body">
+                <p class="card-text" id="movieComment2"></p>
+              </div>
+            </div>
   ```
 
-  ```function clearTrainOnAdd() {
-    $("#trainName").val("");
-    $("#trainDestination").val("");
-    $("#firstTrainTime").val("");
-    $("#trainFrequency").val("");
+   ```<!-- BEGIN SHAREAHOLIC CODE -->
+ <link rel="preload" href="https://cdn.shareaholic.net/assets/pub/shareaholic.js" as="script" />
+ <meta name="shareaholic:site_id" content="71d1fee0aaacb0afde14b426c0ef89b1" />
+ <script data-cfasync="false" async src="https://cdn.shareaholic.net/assets/pub/shareaholic.js"></script>
+ <!-- END SHAREAHOLIC CODE -->
+
+<div class="shareaholic-canvas" data-app="share_buttons" data-app-id="28748923"></div>
+  ```
+  
+
+```//counter for child_added function
+var counter = 0;
+
+//child_added event for firebase (runs as soon as page is loaded)
+database.ref().on("child_added", function (childSnapshot) {
+
+  //increment the counter
+  counter++;
+  
+  //append the movie title
+  $("#movieTitle" + counter).text(childSnapshot.val().title)
+
+  //append the movie image to each corresponding #moviePoster
+  $("#moviePoster" + counter).attr("src", childSnapshot.val().posterUrl)
+    .attr("data-content", childSnapshot.val().description);
+
+  //append the user comment to each 
+  $("#movieComment" + counter).text(childSnapshot.val().userComment);
+
+  //append the emoji
+  $("#showEmoji" + counter).html(childSnapshot.val().emoji);
+
+  //reset counter if equal to 4
+  if (counter == 4)
+  counter = 0;
+});
+  ```
+
+  ```//MovieDatabase AJAX CALL
+$.ajax({
+  url: mdQueryURL + mdApiKey,
+  method: "GET"
+}).then(function (outerResponse) {
+  console.log("ajax");
+  console.log(outerResponse);
+
+  //append 4 movie images to the trending movies carousel
+  for (var i = 0; i < 4; i++) {
+    console.log("for loop runs: " + i);
+
+
+    //retrieve the movie year for each trending movie
+    var movieYear = outerResponse.results[i + 1].release_date;
+    movieYear = movieYear.split("-");
+    movieYear = "&y=" + movieYear[0];
+
+    //inner AJAX call to OMDB API
+    omdbCall(i, movieYear);
+  }
+  ```
+
+  ``` //onClick event for the search button
+$("#button-addon2").on("click", function (event) {
+
+  //prevent the event from refreshing the page
+  event.preventDefault();
+
+  //store the movie title in a variable
+  var movieTitle = $(".form-control").val().trim();
+
+  //OMDB AJAX CALL
+  $.ajax({
+    url: omdbQueryURL + movieTitle + omdbApiKey,
+    method: "GET"
+  }).then(function (response) {
+
+    //retrieve the title of the movie
+    $("#movieTitle").text(response.Title);
+
+    //retrieve the image of the movie
+    $("#movieImage").attr("src", response.Poster);
+
+    $("#movieImage").attr("data-content", response.Plot);
+
+  });
+});
+  ```
+  ```//create an object for each movie
+  var addMovie = {
+    title: $("#movieTitle").text(),
+    posterUrl: $("#movieImage").attr("src"),
+    userComment: $("#inputField").val(),
+    emoji: $("#showEmoji").html(),
+    description: $("#movieImage").attr("data-content")
+  }
+  ```
+  ```// here starts EMOJI API logic
+emojiID = ["cNEkiz27tOidqUBuoR", "2fIbmaiOnI3VlQFZEq", "yN4RUYrRRrKVRoGqQm", "TgGWZwWlsODxFPA21A", "3OsFzorSZSUZcvo6UC"];
+function emojiDisplay() {
+  $("#emojiBtn").empty();
+  for (i = 0; i < emojiID.length; i++) {
+    emojiqueryURL = "https://api.giphy.com/v1/gifs/"+emojiID[i]+"?api_key=tuHOptJN3WWLtwMil1BWJF8fU18JA1f5";
+    $.ajax({
+      url: emojiqueryURL,
+      method: "GET"
+    }).then(function (response) {
+     // adding div class with a card-group using bootstrap 
+      var emojiDiv = $("<span>");
+      $("#emojiBtn").append(emojiDiv);          
+          var emojiImage = $("<img onclick=imgClick('" + response.data.images.downsized_medium.url + "')>")
+              .attr("class", 'emoji_images')
+              .attr("src", response.data.images.downsized_medium.url)
+              
+          $(emojiDiv).append(emojiImage);
+    });
+  } 
+}
+function imgClick(idx) {
+  $("#showEmoji").html("");
+  $("#showEmoji").append('<img src = "' + idx + '" height = 50px width = 50px>');
 }
   ```
 
-  ``` // adding an object to hold train data to store
-    var newTrain = {
-        name: trainName,
-        destination: trainDestination,
-        firstTrain: firstTrainTime,
-        frequency: trainFrequency
-    };
-});
-  ```
-  ```var now = moment();
-    var today = now.format('YYYY-MM-DD');
-    var nowTS = today + " " + firstTrainTime + ':00'
-    var nowTSDate = moment(nowTS).subtract(1, 'day')
-    var duration = Math.floor(moment.duration(moment().diff(nowTSDate)).asMinutes());
-    var offset = Math.floor(duration % trainFrequency)
-    var timeToNextTrain = trainFrequency - offset;
-    var nextTrainArrival = moment().add(timeToNextTrain, 'minute').format("HH:mm");
-  ```
 Git commands:
 
-```git status
+```
+    git checkout master
+    git checkout -b branchname
+    
+    *make changes to the files in your branch*
+    
+    git status
     git add .
     git commit -m "message"
     git push origin master
+    
+    *Create Pull Request*
+    *Merge your code to "master"*
     ```
 
