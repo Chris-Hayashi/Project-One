@@ -11,21 +11,26 @@ body{
  background-color: #353C42
 }
 
+#inputField{
+height: 70px;;
+width: 286px;
+
+}
+
 #userCreateContainer{
-    height: 570px;
-    width: 294px;
+    height: 550px;
+    width: 286px;
     border: black solid;
     margin-left: 60px;
-    margin-bottom: 700px;
-    
 }
 
 #userBucket{
-    height: 570px;
+    height: 218px;
     width: 100%;
     border: solid black 2px;
-    margin-top: 390px;
     background-color: #607178;
+    overflow: auto;
+    
   
 }
 
@@ -66,14 +71,15 @@ footer{
     text-align: center;
     margin-top: 10px;
     font-size: 11px;
+    position: absolute;
   
 }
 
 .carousel{
     height: 350px;
     width: 450px;
-    margin-left: 800px;
-    margin-top: 100px;
+    margin-left: 700px;
+    margin-bottom: 500px;
 
     
 }
@@ -84,12 +90,6 @@ footer{
     width: 200px;
 }
 
-#carousel{
-    width: 500px;
-    height: 300;
-    margin-left: 600px;
-   margin-top: -620px;
-}
 
 .btn{
     color: #FBD1A7;
@@ -114,9 +114,6 @@ z-index: 1;
 position: relative;
 background-color: #01273c;
 color: #FBD1A7;
-margin-bottom: 30px;
-padding-top: -20px;
-margin:
 }
 
 #myBucketHeader{
@@ -124,14 +121,36 @@ margin:
 
 }
 
-#userBucketItem1{
-    margin-left: 300px;
+#userBucketItem1{   
+    margin-left: 1075px;
+    width: 286px;
     float: right;
+    position: absolute;
 }
 #userBucketItem2{
-  
+  margin-left: 720px;
+    width: 286px;
+    height: 70px;
     float: right;
+    position: absolute;
+}
 
+#userBucketItem3{
+    margin-left: 361px;
+    width: 286px;
+    height: 70px;
+    float: right;
+    position: absolute;
+    
+}
+
+#userBucketItem4{
+    margin-left: 0px;
+    width: 286px;
+    height: 70px;
+    float: right;
+    position: absolute;
+    
 }
 
 .card-header{
@@ -151,5 +170,87 @@ textarea{
     margin-left: 20px;
 
     font-family: 'Overpass', sans-serif;
+
+}
+
+#trendingHeader{
+    border: black solid 2px;
+    width: 500px;
+    text-align: center;
+    background-color: #01273C;
+    color: #FBD1A7;
+    font-family: 'Overpass', sans-serif;
+
+}
+
+#usercomment{
+    width: 286px
+}
+
+@media screen and (max-width:980px){
+
+.carousel {
+    height: 200px;
+    width: 250px;
+    margin-left: 400px;
+    margin-bottom: 600px;
+}
+
+#userBucket{
+    height: 400px;
+    background-color: #607178;
+  
+}
+
+#userBucketItem1{
+
+    height: 400px;
+    }
+
+
+}
+
+@media screen and (max-width:851px){
+    #userbucket{
+        height:
+    }
+}
+
+
+@media screen and (max-width:768px){
+    .carousel {
+        visibility: hidden;
+        
+    }
+
+    .col-md-lg-12{
+    
+    
+    }
+
+    #userBucket {
+        width: 100%;
+        background-color: #607178;
+
+
+
+    }
+
+
+    
+
+@media screen and (max-width:640px){
+    .carousel {
+        visibility: hidden;
+        }
+    
+        #userBucket {
+            width: 100%;
+            background-color: #607178;
+    
+    
+    
+        }
+    
 
 }

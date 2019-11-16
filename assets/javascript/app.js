@@ -110,6 +110,7 @@ $("#addBucket").on("click", function (event) {
 
   //upload the movie object to firebase
   database.ref().push(addMovie);
+<<<<<<< HEAD
 });
 
 //hover over to see description in the userBucket
@@ -122,3 +123,8 @@ $(function()    {
 //   $("#movieTitle").popover();
 // });
 //card-header
+=======
+
+
+});
+>>>>>>> 4b89d9d558a6d002305fafb98679fed42d5c0998

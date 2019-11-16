@@ -7,7 +7,7 @@
 //         popup.show();
 //     })
 
-//hover over to see
+//hover over to see description
 $(document).ready(function()    {
     $(".card-header").popover();
 });
