@@ -113,12 +113,12 @@ $("#addBucket").on("click", function (event) {
 });
 
 //hover over to see description in the userBucket
-// $(function()    {
+$(function()    {
 
-//   $('[data-toggle="popover"').popover();
-// });
-
-$(function()  {
-  $("#movieTitle").popover();
+  $('[data-toggle="popover"').popover();
 });
+
+// $(function()  {
+//   $("#movieTitle").popover();
+// });
 //card-header
