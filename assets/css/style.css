@@ -162,5 +162,6 @@ textarea{
 }
 
 .shareaholic-canvas{
-    height: 50px;
+    float: right;
 }
+
