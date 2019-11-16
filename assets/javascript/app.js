@@ -55,24 +55,33 @@ $.ajax({
   url: mdQueryURL + mdApiKey,
   method: "GET"
 }).then(function (outerResponse) {
+  console.log("ajax");
+  console.log(outerResponse);
 
   //append 4 movie images to the trending movies carousel
   for (var i = 0; i < 4; i++) {
+    console.log("for loop runs: " + i);
+
 
     //retrieve the movie year for each trending movie
-    var movieYear = outerResponse.results[i].release_date;
+    var movieYear = outerResponse.results[i + 1].release_date;
     movieYear = movieYear.split("-");
     movieYear = "&y=" + movieYear[0];
 
     //inner AJAX call to OMDB API
+    omdbCall(i, movieYear);
+  }
+  function omdbCall(i, movieYear) { 
     $.ajax({
-      url: omdbQueryURL + outerResponse.results[i].title + movieYear + omdbApiKey,
+      url: omdbQueryURL + outerResponse.results[i + 1].title + movieYear + omdbApiKey,
       method: "GET"
-    }).then(function (innerResponse) {
+  }).then(function (innerResponse) {
+    console.log(innerResponse);
+    console.log("inner ajax called on iteration number: " + i);
 
-      $("#trending" + (i + 1)).attr("src", innerResponse.Poster);
+    $("#car" + (i + 1)).attr("src", innerResponse.Poster);
 
-    });
+  });
   }
 });
 
@@ -130,11 +139,6 @@ $(function()    {
   $('[data-toggle="popover"').popover();
 });
 
-// $(function()  {
-//   $("#movieTitle").popover();
-// });
-//card-header
-
 // here starts EMOJI API logic
 emojiID = ["cNEkiz27tOidqUBuoR", "2fIbmaiOnI3VlQFZEq", "yN4RUYrRRrKVRoGqQm", "TgGWZwWlsODxFPA21A", "3OsFzorSZSUZcvo6UC"];
 function emojiDisplay() {
@@ -145,7 +149,6 @@ function emojiDisplay() {
       url: emojiqueryURL,
       method: "GET"
     }).then(function (response) {
-    console.log(response);
      // adding div class with a card-group using bootstrap 
       var emojiDiv = $("<span>");
       $("#emojiBtn").append(emojiDiv);          
@@ -158,7 +161,6 @@ function emojiDisplay() {
   } 
 }
 function imgClick(idx) {
-  console.log("click - " + idx)
   $("#showEmoji").html("");
   $("#showEmoji").append('<img src = "' + idx + '" height = 50px width = 50px>');
 }

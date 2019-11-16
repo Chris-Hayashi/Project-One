@@ -8,31 +8,42 @@ p{
 }
 
 body{
- background-color: #353C42
+ background-color: #353C42;
+
+}
+
+#inputField{
+height: 70px;;
+width: 288px;
+
+}
+
+#inputField{
+height: 70px;;
+width: 286px;
+
 }
 
 #userCreateContainer{
-    height: 570px;
+    height: 54px;
     width: 294px;
     border: black solid;
-    margin-left: 60px;
-    margin-bottom: 700px;
-    
+    margin-left: 58px;
 }
 
 #userBucket{
-    height: 570px;
+    height: 1000px;
     width: 100%;
     border: solid black 2px;
-    margin-top: 390px;
     background-color: #607178;
-  
+    overflow: auto;  
 }
 
 #carouselContainer{
       border: black solid;
      width: 100px;
     height: 100px; 
+    margin-right: 100px;
 }
 
 .jumbotron{
@@ -66,16 +77,15 @@ footer{
     text-align: center;
     margin-top: 10px;
     font-size: 11px;
+    position: absolute;
   
 }
 
 .carousel{
-    height: 350px;
-    width: 450px;
-    margin-left: 800px;
-    margin-top: 100px;
-
-    
+    height: 300px;
+    width: 375px;
+    margin-left: 700px;
+    margin-bottom: 400px;
 }
 
 
@@ -84,12 +94,6 @@ footer{
     width: 200px;
 }
 
-#carousel{
-    width: 500px;
-    height: 300;
-    margin-left: 600px;
-   margin-top: -620px;
-}
 
 .btn{
     color: #FBD1A7;
@@ -116,7 +120,6 @@ background-color: #01273c;
 color: #FBD1A7;
 margin-bottom: 30px;
 padding-top: -20px;
-/* margin: */
 }
 
 #myBucketHeader{
@@ -124,15 +127,37 @@ padding-top: -20px;
 
 }
 
-#userBucketItem1{
-    margin-left: 300px;
+/* #userBucketItem1{   
+    margin-left: 1075px;
+    width: 286px;
     float: right;
+    position: absolute;
 }
 #userBucketItem2{
-  
+  margin-left: 720px;
+    width: 286px;
+    height: 70px;
     float: right;
-
+    position: absolute;
 }
+
+#userBucketItem3{
+    margin-left: 361px;
+    width: 286px;
+    height: 70px;
+    float: right;
+    position: absolute;
+    
+}
+
+#userBucketItem4{
+    margin-left: 0px;
+    width: 286px;
+    height: 70px;
+    float: right;
+    position: absolute;
+    
+} */
 
 .card-header{
     background-color: #01273C;
@@ -170,4 +195,79 @@ textarea{
 #showEmoji {
     width: 10%;
     z-index: 1;
+}
+
+#trendingHeader{
+    border: black solid 2px;
+    width: 350px;
+    text-align: center;
+    background-color: #01273C;
+    color: #FBD1A7;
+    font-family: 'Overpass', sans-serif;
+}
+
+#usercomment{
+    width: 286px
+}
+
+@media screen and (max-width:980px){
+
+.carousel {
+    height: 200px;
+    width: 250px;
+    margin-left: 400px;
+    margin-bottom: 600px;
+}
+
+#userBucket{
+    /* height: 1000px; */
+    background-color: #607178;
+    overflow: auto;
+  
+}
+
+#userBucketItem1{
+
+    height: 400px;
+    }
+
+
+}
+
+@media screen and (max-width:851px){
+    
+}
+
+
+@media screen and (max-width:768px){
+
+    #userBucket {
+        width: 100%;
+        background-color: #607178;
+
+    }
+}
+
+@media screen and (max-width:640px){
+       
+    #userCreateContainer{
+            position: absolute;
+        }
+        #trendingHeader{
+            width:200px;
+            height: 200px;
+            position: absolute;
+           
+            margin-top: 670px;
+            margin-left: 0px;
+            visibility: hidden;
+        }
+        #userBucket {
+            width: 100%;
+            background-color: #607178;
+        
+        }
+        #topLeft{
+            position: absolute;
+        }
 }
