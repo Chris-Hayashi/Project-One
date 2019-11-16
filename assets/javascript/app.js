@@ -31,6 +31,16 @@ database.ref().on("child_added", function (childSnapshot) {
   $("#userBucket").append(newCard);
 });
 
+//hover over to see description in the userBucket
+$(function()    {
+  $('[data-toggle="popover"').popover();
+});
+
+// $(function()  {
+//   $(".movieTitle").popover(options);
+// });
+// //card-header
+
 //OMDB API
 var omdbApiKey = "&apikey=" + "trilogy";
 var omdbQueryURL = "http://www.omdbapi.com/?t=";
