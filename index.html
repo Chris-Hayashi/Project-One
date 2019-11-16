@@ -60,13 +60,23 @@
 <!--User creation container on top left page-->
 
       <div id="userCreateContainer">
-        <div class="card" style="width: 18rem;" id="showTitle">
+          <button type="button" 
+          class="btn btn-outline-secondary"
+          id="movieTitle"
+          title="Example"
+          data-content="This is an example of what your form should look like." 
+          data-trigger="hover"
+          data-toggle="popover" 
+          data-placement="right"  
+          >
+      </button>
+        <!-- <div class="card" style="width: 18rem;" id="showTitle"> -->
 
           <ul class="list-group list-group-flush">
             <div class="card-header" id="movieTitle"></div>
           </ul>
 
-        </div>
+        <!-- </div> -->
         <div class="card" style="width: 18rem;">
            <img id="movieImage" src="" class="card-img-top" alt="...">
         </div>
@@ -74,7 +84,17 @@
          <input type="field" id="inputField" placeholder= "Tell us how you really feel.."> 
         </div>
                       
-         <button type="button" class="btn btn-outline-secondary" id="addBucket">Add to bucket</button>  
+         <!-- <button type="button" class="btn btn-outline-secondary" id="addBucket">Add to bucket</button>   -->
+         <button type="button" 
+         class="btn btn-outline-secondary"
+         id="addBucket"
+         data-content="Add to your bucket down below!" 
+         data-trigger="hover"
+         data-toggle="popover" 
+         data-placement="bottom"  
+         >Add to Bucket
+     </button>
+         
       </div>
                
               
