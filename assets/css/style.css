@@ -23,11 +23,12 @@ body{
 }
 
 #userBucket{
-    height: 570px;
+    height: 260px;
     width: 100%;
     border: solid black 2px;
     /* margin-top: 390px; */
     background-color: #607178;
+    overflow: auto;
     
   
 }
@@ -209,7 +210,7 @@ textarea{
 #userBucket{
     height: 400px;
     background-color: #607178;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
 }
 
 #userBucketItem1{
@@ -219,6 +220,13 @@ textarea{
 
 
 }
+
+@media screen and (max-width:851px){
+    #userbucket{
+        height:
+    }
+}
+
 
 @media screen and (max-width:768px){
     .carousel {
