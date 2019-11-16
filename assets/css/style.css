@@ -18,6 +18,12 @@ width: 288px;
 
 }
 
+#inputField{
+height: 70px;;
+width: 286px;
+
+}
+
 #userCreateContainer{
     height: 54px;
     width: 294px;
@@ -215,32 +221,19 @@ textarea{
 
 
 @media screen and (max-width:768px){
-    /* .carousel {
-        visibility: hidden;
-        
-    } */
-
-    .col-md-lg-12{
-    
-    
-    }
 
     #userBucket {
         width: 100%;
         background-color: #607178;
 
-
     }
-
-
-    
+}
 
 @media screen and (max-width:640px){
-        #userCreateContainer{
+       
+    #userCreateContainer{
             position: absolute;
-
         }
-
         #trendingHeader{
             width:200px;
             height: 200px;
@@ -250,16 +243,12 @@ textarea{
             margin-left: 0px;
             visibility: hidden;
         }
-    
         #userBucket {
             width: 100%;
             background-color: #607178;
         
         }
-
         #topLeft{
             position: absolute;
         }
-    
-
 }
