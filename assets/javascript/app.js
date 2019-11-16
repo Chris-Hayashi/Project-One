@@ -109,4 +109,6 @@ $("#addBucket").on("click", function (event) {
 
   //upload the movie object to firebase
   database.ref().push(addMovie);
+
+
 });
