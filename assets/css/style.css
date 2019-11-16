@@ -32,7 +32,7 @@ width: 286px;
 }
 
 #userBucket{
-    height: 218px;
+    height: 1000px;
     width: 100%;
     border: solid black 2px;
     background-color: #607178;
@@ -89,12 +89,6 @@ footer{
 }
 
 
-#trending1{
-    height: 200px;
-    width: 200px;
-}
-
-
 .btn{
     color: #FBD1A7;
     background-color: #01273c;
@@ -118,6 +112,8 @@ z-index: 1;
 position: relative;
 background-color: #01273c;
 color: #FBD1A7;
+margin-bottom: 30px;
+padding-top: -20px;
 }
 
 #myBucketHeader{
@@ -125,7 +121,7 @@ color: #FBD1A7;
 
 }
 
-#userBucketItem1{   
+/* #userBucketItem1{   
     margin-left: 1075px;
     width: 286px;
     float: right;
@@ -155,12 +151,13 @@ color: #FBD1A7;
     float: right;
     position: absolute;
     
-}
+} */
 
 .card-header{
     background-color: #01273C;
     color: #FBD1A7;
     font-family: 'Overpass', sans-serif;
+
 
  
 }
@@ -175,6 +172,23 @@ textarea{
 
     font-family: 'Overpass', sans-serif;
 
+}
+
+.emoji_images{
+    height: 50px;
+    width: 50px;
+    margin:3.5px;
+
+}
+
+#inputField {
+    height: 60px;
+    width: 100%;
+}
+
+#showEmoji {
+    width: 10%;
+    z-index: 1;
 }
 
 #trendingHeader{
@@ -200,8 +214,9 @@ textarea{
 }
 
 #userBucket{
-    height: 400px;
+    /* height: 1000px; */
     background-color: #607178;
+    overflow: auto;
   
 }
 
@@ -214,9 +229,7 @@ textarea{
 }
 
 @media screen and (max-width:851px){
-    #userbucket{
-        height:
-    }
+    
 }
 
 

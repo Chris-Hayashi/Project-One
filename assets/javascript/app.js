@@ -14,22 +14,33 @@ firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
 
+//counter for child_added function
+var counter = 0;
+
 //child_added event for firebase (runs as soon as page is loaded)
 database.ref().on("child_added", function (childSnapshot) {
 
-  //create the div card
-  var newCard = $("<div class='card' style='width: 18rem;'>");
-  var cardImage = $("<img class='card-img-top' alt='Card image cap'>");
-  movieImage.attr("src", childSnapshot.posterUrl);
-  var cardBody = $("<div class='card-body'>");
-  cardBody.append($("<h5>").attr("class", "card-class").text(childSnapshot.title));
-  cardBody.append($("<p class='card-text'>").text(childSnapshot.userComment));
-  newCard.append(cardImage);
-  newCard.append(cardBody);
+  //increment the counter
+  counter++;
+  
+  //append the movie title
+  $("#movieTitle" + counter).text(childSnapshot.val().title)
 
-  //append the newCard to #userBucket
-  $("#userBucket").append(newCard);
+  //append the movie image to each corresponding #moviePoster
+  $("#moviePoster" + counter).attr("src", childSnapshot.val().posterUrl)
+    .attr("data-content", childSnapshot.val().description);
+
+  //append the user comment to each 
+  $("#movieComment" + counter).text(childSnapshot.val().userComment);
+
+  //append the emoji
+  $("#showEmoji" + counter).html(childSnapshot.val().emoji);
+
+  //reset counter if equal to 4
+  if (counter == 4)
+  counter = 0;
 });
+
 
 //OMDB API
 var omdbApiKey = "&apikey=" + "trilogy";
@@ -44,26 +55,33 @@ $.ajax({
   url: mdQueryURL + mdApiKey,
   method: "GET"
 }).then(function (outerResponse) {
-
+  console.log("ajax");
   console.log(outerResponse);
 
   //append 4 movie images to the trending movies carousel
   for (var i = 0; i < 4; i++) {
+    console.log("for loop runs: " + i);
+
 
     //retrieve the movie year for each trending movie
-    var movieYear = outerResponse.results[i].release_date;
+    var movieYear = outerResponse.results[i + 1].release_date;
     movieYear = movieYear.split("-");
     movieYear = "&y=" + movieYear[0];
 
     //inner AJAX call to OMDB API
+    omdbCall(i, movieYear);
+  }
+  function omdbCall(i, movieYear) { 
     $.ajax({
-      url: omdbQueryURL + outerResponse.results[i].title + movieYear + omdbApiKey,
+      url: omdbQueryURL + outerResponse.results[i + 1].title + movieYear + omdbApiKey,
       method: "GET"
-    }).then(function (innerResponse) {
+  }).then(function (innerResponse) {
+    console.log(innerResponse);
+    console.log("inner ajax called on iteration number: " + i);
 
-      $("#trending" + (i + 1)).attr("src", innerResponse.Poster);
+    $("#car" + (i + 1)).attr("src", innerResponse.Poster);
 
-    });
+  });
   }
 });
 
@@ -90,6 +108,8 @@ $("#button-addon2").on("click", function (event) {
     //retrieve the image of the movie
     $("#movieImage").attr("src", response.Poster);
 
+    $("#movieImage").attr("data-content", response.Plot);
+
   });
 });
 
@@ -104,11 +124,43 @@ $("#addBucket").on("click", function (event) {
   var addMovie = {
     title: $("#movieTitle").text(),
     posterUrl: $("#movieImage").attr("src"),
-    userComment: $("#userComment").val()
+    userComment: $("#inputField").val(),
+    emoji: $("#showEmoji").html(),
+    description: $("#movieImage").attr("data-content")
   }
 
   //upload the movie object to firebase
   database.ref().push(addMovie);
-
-
 });
+
+//hover over to see description in the userBucket
+$(function()    {
+
+  $('[data-toggle="popover"').popover();
+});
+
+// here starts EMOJI API logic
+emojiID = ["cNEkiz27tOidqUBuoR", "2fIbmaiOnI3VlQFZEq", "yN4RUYrRRrKVRoGqQm", "TgGWZwWlsODxFPA21A", "3OsFzorSZSUZcvo6UC"];
+function emojiDisplay() {
+  $("#emojiBtn").empty();
+  for (i = 0; i < emojiID.length; i++) {
+    emojiqueryURL = "https://api.giphy.com/v1/gifs/"+emojiID[i]+"?api_key=tuHOptJN3WWLtwMil1BWJF8fU18JA1f5";
+    $.ajax({
+      url: emojiqueryURL,
+      method: "GET"
+    }).then(function (response) {
+     // adding div class with a card-group using bootstrap 
+      var emojiDiv = $("<span>");
+      $("#emojiBtn").append(emojiDiv);          
+          var emojiImage = $("<img onclick=imgClick('" + response.data.images.downsized_medium.url + "')>")
+              .attr("class", 'emoji_images')
+              .attr("src", response.data.images.downsized_medium.url)
+              
+          $(emojiDiv).append(emojiImage);
+    });
+  } 
+}
+function imgClick(idx) {
+  $("#showEmoji").html("");
+  $("#showEmoji").append('<img src = "' + idx + '" height = 50px width = 50px>');
+}
