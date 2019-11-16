@@ -133,14 +133,7 @@ function emojiDisplay() {
     console.log(response);
      // adding div class with a card-group using bootstrap 
       var giphyDiv = $("<span>");
-      $("#emojiBtn").append(giphyDiv);
-      //iterating the response in a for loop and adding them to a card div to arrange them using bootstrap
-      // for (i = 0; i < emojiID.length; i++) {
-          //keeping this console log to ensure we get the right API callback
-          //console.log(response.data)
-          //var media = $("<div class='media'>");
-          //$(giphyDiv).prepend(media);
-          
+      $("#emojiBtn").append(giphyDiv);          
           var gifImage = $("<img onclick=imgClick('" + response.data.images.downsized_medium.url + "')>")
               .attr("class", 'emoji_images')
               .attr("src", response.data.images.downsized_medium.url)
@@ -154,6 +147,4 @@ function imgClick(idx) {
   console.log("click - " + idx)
   $("#showEmoji").html("");
   $("#showEmoji").append('<img src = "' + idx + '" height = 50px width = 50px>');
-  
 }
-
