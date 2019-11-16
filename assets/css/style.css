@@ -139,6 +139,7 @@ margin:
     color: #FBD1A7;
     font-family: 'Overpass', sans-serif;
 
+
  
 }
 
@@ -152,4 +153,21 @@ textarea{
 
     font-family: 'Overpass', sans-serif;
 
+}
+
+.emoji_images{
+    height: 50px;
+    width: 50px;
+    margin:3.5px;
+
+}
+
+#inputField {
+    height: 60px;
+    width: 100%;
+}
+
+#showEmoji {
+    width: 50px;
+    z-index: 1;
 }
