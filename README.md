@@ -13,8 +13,7 @@ Task Breakdowns
 UI Design
 How We Implemented Bootstrap
 Mobile Responsiveness
-API Design, Firebase and Details
-Screenshots of Project-1 progress
+API Design, Firebase, Libraries
 Git Flow
 DEMO Gif Walkthrough
 Future RoadMap
@@ -96,7 +95,7 @@ Once the page hits 640px, we decided to hide away the trending carousel. We did 
 ![Mobile Responsiveness](https://github.com/Chris-Hayashi/Project-One/blob/master/assets/images/mobileResponseExample.gif "Mobile Responsiveness")
 
 
-## API Design and Details
+## API Design, Firebase, Libraries
 
 ### The OMDB API
 We used the OMDB API for searching for movies/tv shows from the database
@@ -123,18 +122,24 @@ We searched for multiple options for grabbing a set of emojis to rate or emote a
 ### Shareaholic API
 We used this API to share our website/application over a social media platform. For this we used the shareaholic API which gave us the necessary start for sharing our application.
 
-![The Shareaholic API](https://github.com/Chris-Hayashi/Project-One/blob/master/assets/images/firebase.png "The Giphy API")
+![The Shareaholic API](https://github.com/Chris-Hayashi/Project-One/blob/READMEUpdatesToMaster/assets/images/ShareaholicAPI.gif "The Shareaholic API")
 
+### Popper.JS
+This library works like a thought bubble,it allows user to hover over a movie and see a brief description of reviews. The information only comes up when a user hovers over the movie and is not to be visible at other times
 
-
-## Screenshots of Project-1 progress
-
-![Code progression Final](https://github.com/krishnaaddala/train-schedulerHW/blob/master/assets/images/Code_Final1.png "TrainScheduler Final Layout 1")
-
-![Code progression Final](https://github.com/krishnaaddala/train-schedulerHW/blob/master/assets/images/code_final2.png "TrainScheduler Final Layout 2")
+![Popper.js Library](https://github.com/Chris-Hayashi/Project-One/blob/master/assets/images/popperExample.gif "Popper.js Library")
 
 ## Git Flow
+We started with one of our team members creating master and added all of our other team members as collaborators:
+We did the initial pull from master, we added the structure for the framework we are building with folders and files. We then created a PR and merged those changes so that all of us can pull from that point to start work on each of our components 
 
+![GitFlow 1](https://github.com/Chris-Hayashi/Project-One/blob/master/assets/images/gitFlow1.png "GitFlow 1")
+
+![GitFlow 2](https://github.com/Chris-Hayashi/Project-One/blob/master/assets/images/gitFlow2.png "GitFlow 2")
+
+![GitFlow 3](https://github.com/Chris-Hayashi/Project-One/blob/master/assets/images/gitFlow3.png "GitFlow 3")
+
+![GitFlow 4](https://github.com/Chris-Hayashi/Project-One/blob/master/assets/images/gitFlow4.png "GitFlow 4")
 
 ## DEMO Gif Walkthrough
 
