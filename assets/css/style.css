@@ -8,7 +8,14 @@ p{
 }
 
 body{
- background-color: #353C42
+ background-color: #353C42;
+
+}
+
+#inputField{
+height: 70px;;
+width: 288px;
+
 }
 
 #inputField{
@@ -18,10 +25,10 @@ width: 286px;
 }
 
 #userCreateContainer{
-    height: 550px;
-    width: 286px;
+    height: 54px;
+    width: 294px;
     border: black solid;
-    margin-left: 60px;
+    margin-left: 58px;
 }
 
 #userBucket{
@@ -29,15 +36,14 @@ width: 286px;
     width: 100%;
     border: solid black 2px;
     background-color: #607178;
-    overflow: auto;
-    
-  
+    overflow: auto;  
 }
 
 #carouselContainer{
       border: black solid;
      width: 100px;
     height: 100px; 
+    margin-right: 100px;
 }
 
 .jumbotron{
@@ -76,12 +82,10 @@ footer{
 }
 
 .carousel{
-    height: 350px;
-    width: 450px;
+    height: 300px;
+    width: 375px;
     margin-left: 700px;
-    margin-bottom: 500px;
-
-    
+    margin-bottom: 400px;
 }
 
 
@@ -175,12 +179,11 @@ textarea{
 
 #trendingHeader{
     border: black solid 2px;
-    width: 500px;
+    width: 350px;
     text-align: center;
     background-color: #01273C;
     color: #FBD1A7;
     font-family: 'Overpass', sans-serif;
-
 }
 
 #usercomment{
@@ -218,39 +221,34 @@ textarea{
 
 
 @media screen and (max-width:768px){
-    .carousel {
-        visibility: hidden;
-        
-    }
-
-    .col-md-lg-12{
-    
-    
-    }
 
     #userBucket {
         width: 100%;
         background-color: #607178;
 
-
-
     }
-
-
-    
+}
 
 @media screen and (max-width:640px){
-    .carousel {
-        visibility: hidden;
+       
+    #userCreateContainer{
+            position: absolute;
         }
-    
+        #trendingHeader{
+            width:200px;
+            height: 200px;
+            position: absolute;
+           
+            margin-top: 670px;
+            margin-left: 0px;
+            visibility: hidden;
+        }
         #userBucket {
             width: 100%;
             background-color: #607178;
-    
-    
-    
+        
         }
-    
-
+        #topLeft{
+            position: absolute;
+        }
 }
